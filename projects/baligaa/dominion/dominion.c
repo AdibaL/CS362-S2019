@@ -651,7 +651,8 @@ int getCost(int cardNumber)
     }
       
     //discard card from hand
-    discardCard(handPos, currentPlayer, state, 0);
+    //BUG#1: The trash flag integer below is set to 1 instead of 0
+    discardCard(handPos, currentPlayer, state, 1);
     return 0;
   }
           
