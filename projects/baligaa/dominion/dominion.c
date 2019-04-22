@@ -695,8 +695,8 @@ int getCost(int cardNumber)
     return 0;
   }
 
-  int remodelCard(int currentPlayer, struct gameState *state, int choice2, int handPos){
-    j = state->hand[currentPlayer][choice1];  //store card we will trash
+  int remodelCard(int currentPlayer, struct gameState *state, int choice1, int choice2, int handPos){
+    int j = state->hand[currentPlayer][choice1];  //store card we will trash
 
     if ( (getCost(state->hand[currentPlayer][choice1]) + 2) > getCost(choice2) ){
       return -1;
@@ -708,7 +708,7 @@ int getCost(int cardNumber)
     discardCard(handPos, currentPlayer, state, 0);
 
     //discard trashed card
-    for (i = 0; i < state->handCount[currentPlayer]; i++){
+    for (int i = 0; i < state->handCount[currentPlayer]; i++){
       if (state->hand[currentPlayer][i] == j){
         discardCard(i, currentPlayer, state, 0);      
         break;
@@ -760,7 +760,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return great_hallCard (currentPlayer, state, handPos);
 
     case remodel:
-      return remodelCard(currentPlayer, state, choice2, handPos);
+      return remodelCard(currentPlayer, state, choice1, choice2, handPos);
 
     case outpost:
       return outpostCard(currentPlayer, state, handPos);
