@@ -723,8 +723,10 @@ int getCost(int cardNumber)
 
   int outpostCard(int currentPlayer, struct gameState *state, int handPos){
     //set outpost flag
-    state->outpostPlayed++;
-      
+    //Bug #4: Instead of incrementing outpostPlayed, it is set to 0
+    //state->outpostPlayed++;
+    state->outpostPlayed = 0;
+    
     //discard card
     discardCard(handPos, currentPlayer, state, 0);
     return 0;
