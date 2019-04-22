@@ -646,7 +646,7 @@ int getCost(int cardNumber)
 //Refactor code for Assignment 2
   int smithyCard (int currentPlayer, struct gameState *state, int handPos){
     //+3 Cards
-    for (i = 0; i < 3; i++){
+    for (int i = 0; i < 3; i++){
       drawCard(currentPlayer, state);
     }
       
@@ -662,7 +662,7 @@ int getCost(int cardNumber)
         shuffle(currentPlayer, state);
       }
       drawCard(currentPlayer, state);
-      cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]-1];//top card of hand is most recently drawn card.
+      int cardDrawn = state->hand[currentPlayer][state->handCount[currentPlayer]-1];//top card of hand is most recently drawn card.
       if (cardDrawn == copper || cardDrawn == silver || cardDrawn == gold)
         drawntreasure++;
       else{
@@ -691,8 +691,8 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
 
   int tributeRevealedCards[2] = {-1, -1};
   int temphand[MAX_HAND];// moved above the if statement
-  int drawntreasure=0;
-  int cardDrawn;
+  //int drawntreasure=0;
+  //int cardDrawn;
   int z = 0;// this is the counter for the temp hand
   if (nextPlayer > (state->numPlayers - 1)){
     nextPlayer = 0;
