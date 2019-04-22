@@ -676,6 +676,7 @@ int getCost(int cardNumber)
       }
     }
     
+    //Bug #2: while loop condition changed from (z-1>=0) to (z-1>0)
     while(z-1>0){
       state->discard[currentPlayer][state->discardCount[currentPlayer]++]=temphand[z-1]; // discard all cards in play that have been drawn
       z=z-1;
@@ -686,7 +687,8 @@ int getCost(int cardNumber)
 
   int great_hallCard (int currentPlayer, struct gameState *state, int handPos){
     //+1 Card
-    drawCard(currentPlayer, state);
+    //BUG #3: drawCard is commented out
+    //drawCard(currentPlayer, state);
     
     //+1 Actions
     state->numActions++;
